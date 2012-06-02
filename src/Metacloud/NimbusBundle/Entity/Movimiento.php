@@ -142,7 +142,7 @@ class Movimiento
     
     
     /**
-     *@ORM\ManyToOne(targetEntity="Ccosto", inverseBy="movimientos")
+     *@ORM\ManyToOne(targetEntity="Ccosto", inversedBy="movimientos")
     * @ORM\JoinColumn(name="ccosto_id", referencedColumnName="id") 
      */
       private $ccosto;
