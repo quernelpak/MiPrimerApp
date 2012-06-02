@@ -112,4 +112,20 @@ class Linea
     {
         return $this->impuesto;
     }
+    
+    /**
+     *@ORM\ManyToOne(targetEntity="Movimiento", inversedBy="movimientos")
+    * @ORM\JoinColumn(name="movimiento_id", referencedColumnName="id") 
+     */
+    private $movimiento;
+    public function setMovimiento(\Metacloud\NimbusBundle\Entity\Movimiento $movimiento)
+    {
+        $this->movimiento = $movimiento;
+    }
+    
+    public function getMovimiento() 
+    {
+        return $this->movimiento;
+        
+    }
 }

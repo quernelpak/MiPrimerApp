@@ -156,4 +156,28 @@ class Movimiento
         return $this->ccosto;
     }
     
+    /**
+     * @ORM\OneToMany(targetEntity="Linea", mappedBy="movimiento")
+     */
+    
+    private $lineas;
+    public function __construct()
+    {
+        $this->lineas = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    public function addLineas(\Metacloud\NimbusBundle\Entity\Linea $lineas)
+    {
+        $this->lineas[] = $lineas;
+    }
+
+    public function getLineas()
+    {
+        return $this->lineas;
+    }
+    
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
+    
 }
