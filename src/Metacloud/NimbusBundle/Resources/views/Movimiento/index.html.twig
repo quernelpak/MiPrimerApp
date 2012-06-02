@@ -1,0 +1,43 @@
+<h1>Movimiento list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Descripcion</th>
+            <th>Fecha</th>
+            <th>N_documento</th>
+            <th>Activo</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('movimiento_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.descripcion }}</td>
+            <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.ndocumento }}</td>
+            <td>{{ entity.activo }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('movimiento_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('movimiento_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('movimiento_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

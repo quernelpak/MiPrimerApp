@@ -130,4 +130,9 @@ class Ccosto
     {
         return $this->movimientos;
     }
+    
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 }
