@@ -157,7 +157,8 @@ class Movimiento
     }
     
     /**
-     * @ORM\OneToMany(targetEntity="Linea", mappedBy="movimiento")
+     * @var type
+     * @ORM\OneToMany(targetEntity="Linea", mappedBy="movimiento", cascade={"persist"})
      */
     
     private $lineas;
@@ -168,11 +169,20 @@ class Movimiento
     public function addLineas(\Metacloud\NimbusBundle\Entity\Linea $lineas)
     {
         $this->lineas[] = $lineas;
+        $tags->setMovimiento($this);
     }
 
     public function getLineas()
     {
         return $this->lineas;
+    }
+    
+    public function setLineas($lineas)
+    {
+         $this->lineas = $lineas;
+        foreach ($lineas as $linea){
+            $linea->setMovimiento($this);
+        }
     }
     
     public function __toString()

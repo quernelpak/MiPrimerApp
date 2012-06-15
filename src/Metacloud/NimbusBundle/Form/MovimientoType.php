@@ -15,7 +15,18 @@ class MovimientoType extends AbstractType
             ->add('n_documento')
             ->add('activo')
             ->add('ccosto')
+            ->add('lineas', 'collection', array(
+                    'type' => new LineaType(),
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'prototype' => true,
+                    'by_reference' => false,
+                    ))
         ;
+    }
+    
+    public function getDefaultOptions(array $options){
+        return array('data_class' => 'Metacloud\NimbusBundle\Entity\Movimiento');
     }
 
     public function getName()

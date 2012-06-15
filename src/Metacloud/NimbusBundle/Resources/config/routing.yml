@@ -1,0 +1,4 @@
+NimbusBundle_linea:
+    resource: "@NimbusBundle/Resources/config/routing/linea.yml"
+    prefix:   /linea
+

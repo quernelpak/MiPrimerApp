@@ -1,0 +1,30 @@
+linea:
+    pattern:  /
+    defaults: { _controller: "NimbusBundle:Linea:index" }
+
+linea_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "NimbusBundle:Linea:show" }
+
+linea_new:
+    pattern:  /new
+    defaults: { _controller: "NimbusBundle:Linea:new" }
+
+linea_create:
+    pattern:  /create
+    defaults: { _controller: "NimbusBundle:Linea:create" }
+    requirements: { _method: post }
+
+linea_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "NimbusBundle:Linea:edit" }
+
+linea_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "NimbusBundle:Linea:update" }
+    requirements: { _method: post }
+
+linea_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "NimbusBundle:Linea:delete" }
+    requirements: { _method: post }

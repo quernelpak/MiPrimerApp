@@ -1,7 +1,10 @@
+{% extends "::base.html.twig" %}
+{% block body %}
 <h1>Movimiento creation</h1>
 
 <form action="{{ path('movimiento_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
+        
     <p>
         <button type="submit">Create</button>
     </p>
@@ -13,4 +16,13 @@
             Back to the list
         </a>
     </li>
+    <li>
+        <a href="#" class="jslink">
+            agregar una linea
+        </a>
+    </li>
 </ul>
+
+
+{% include "NimbusBundle:Movimiento:js.html.twig" %}
+{% endblock %}
